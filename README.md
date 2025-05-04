@@ -1,6 +1,8 @@
 # chatbot_flask
-chatbot-api/
-├── app.py              # Arquivo principal Flask
-├── responses.py        # Lógica de respostas do chatbot
-└── requirements.txt    # Dependências (Flask)
+## chatbot-api
+<ul> 
+  <li>app.py / Arquivo principal Flask</li>
+  <li>responses.py / Lógica de respostas do chatbot </li>
+  <li> requirements.txt / Dependências (Flask)</li>
+</ul>
 
