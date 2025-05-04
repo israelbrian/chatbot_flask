@@ -1,15 +1,38 @@
-async function sendMessage() {
-    const message = document.getElementById("userInput").value;
+const chatForm = document.getElementById('chat-form')
+const chatMessages = document.getElementById('chat-box')
+const chatInput = document.getElementById('chat-input')
 
-    const response = await fetch("http://localhost:5000/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ message })
-    });
+// Função para imprimir mensagens no DOM
+function appendMessage(text, className) {
+  const msg = document.createElement('div')
+  msg.className = `message ${className}`
+  msg.innerText = text
+  chatMessages.appendChild(msg)
+  chatMessages.scrollTop = chatMessages.scrollHeight
+}
 
-    const data = await response.json();
-    document.getElementById("chatLog").innerHTML += `<p><strong>Você:</strong> ${message}</p>`;
-    document.getElementById("chatLog").innerHTML += `<p><strong>Bot:</strong> ${data.response}</p>`;
+// Evento de envio do formulário
+chatForm.addEventListener('submit', async (e) => {
+  e.preventDefault()
+  const userMsg = chatInput.value.trim()
+  if (!userMsg) return
+  // Adiciona a mensagem do usuário ao chat visualmente
+  appendMessage(userMsg, 'user-message')
+  // Limpa o input
+  chatInput.value = ''
+
+  // Envia a mensagem via POST para a API
+  try {
+    const response = await fetch('http://localhost:5000/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: userMsg })
+    })
+    
+    const data = await response.json()
+    // Exibe a resposta do bot no chat
+    appendMessage(data.response, 'bot-message')
+  } catch (err) {
+    appendMessage('Erro ao se comunicar com o bot.', 'bot-message')
   }
+})
