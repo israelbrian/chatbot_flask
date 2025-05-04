@@ -5,7 +5,7 @@ def get_bot_response(user_message):
 
     # Respostas do bot baseadas em palavras-chave 
     if "oi" in message or "oie" in message or "ola" in message or "olá" in message:
-        return "Fala, fã da FURIA! Pronto para vibrar com a gente?"
+        return "Fala, fã da FURIA! Sobre o que você quer saber?"
     elif "jogo" in message or "partida" in message:
         return "Nosso próximo jogo é dia 10 de maio! Prepara o coração! #GOFURIA!"
     elif "cs" in message or "counter" in message or "strike" in message:
