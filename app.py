@@ -5,12 +5,8 @@ from responses import get_bot_response
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/')
-def home():
-    return "Bem-vindo ao Chatbot! Envie uma mensagem para /chat."
-
 # Rota para receber mensagens do usuário e retornar a resposta do bot
-@app.route('/chat', methods=['POST'])
+@app.route('/', methods=['POST'])
 def chat():
     # extrai os dados JSON que vieram no corpo da requisição POST
     data = request.get_json()
