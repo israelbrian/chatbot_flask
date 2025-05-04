@@ -1,5 +1,5 @@
-# chatbot_flask
-## chatbot-api
+# chatbot FLASK 
+## (python, flask, APIREST, POSTMAN, RENDER)
 <ul> 
   <li>app.py / Arquivo principal Flask</li>
   <li>responses.py / Lógica de respostas do chatbot </li>
