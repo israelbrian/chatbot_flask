@@ -3,7 +3,7 @@ def get_bot_response(user_message):
     # evitando problemas de case-sensitivity
     message = user_message.lower()
 
-    # Respostas do bot baseadas em palavras-chave
+    # Respostas do bot baseadas em palavras-chave 
     if "oi" in message or "oie" in message or "ola" in message or "olá" in message:
         return "Fala, fã da FURIA! Pronto para vibrar com a gente?"
     elif "jogo" in message or "partida" in message:
