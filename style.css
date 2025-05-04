@@ -43,10 +43,10 @@ body {
   }
   
   .user-message {
-    background-color: #0055ff;
+    background-color: #161616;
     color: white;
     align-self: flex-end;
-    text-align: right;
+    /* text-align: right; */
   }
   
   form {

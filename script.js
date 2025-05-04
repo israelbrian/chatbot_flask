@@ -3,10 +3,11 @@ const chatMessages = document.getElementById('chat-box')
 const chatInput = document.getElementById('chat-input')
 
 // Função para imprimir mensagens no DOM
-function appendMessage(text, className) {
+function appendMessage(sender, text, className) {
   const msg = document.createElement('div')
   msg.className = `message ${className}`
-  msg.innerText = text
+  // msg.innerText = text
+  msg.innerHTML = `<strong>${sender}:</strong> ${text}`;
   chatMessages.appendChild(msg)
   chatMessages.scrollTop = chatMessages.scrollHeight
 }
@@ -17,7 +18,7 @@ chatForm.addEventListener('submit', async (e) => {
   const userMsg = chatInput.value.trim()
   if (!userMsg) return
   // Adiciona a mensagem do usuário ao chat visualmente
-  appendMessage(userMsg, 'user-message')
+  appendMessage("Você", userMsg, 'user-message')
   // Limpa o input
   chatInput.value = ''
 
@@ -31,7 +32,7 @@ chatForm.addEventListener('submit', async (e) => {
     
     const data = await response.json()
     // Exibe a resposta do bot no chat
-    appendMessage(data.response, 'bot-message')
+    appendMessage("FURIA BOT", data.response, 'bot-message')
   } catch (err) {
     appendMessage('Erro ao se comunicar com o bot.', 'bot-message')
   }
